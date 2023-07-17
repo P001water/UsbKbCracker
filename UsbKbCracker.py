@@ -86,8 +86,8 @@ class kbpaser:
                     result.append(self.normalKeys[Bytes[2]])
                     # print(result)
             elif int(Bytes[0],16) & 0b10 or int(Bytes[0],16) & 0b100000: # shift key is pressed.
-                if Bytes[2] != "00" and self.normalKeys.get(Bytes[2]):
-                    result.append(self.normalKeys[Bytes[2]])
+                if Bytes[2] != "00" and self.shiftKeys.get(Bytes[2]):
+                    result.append(self.shiftKeys[Bytes[2]])
             else:
                 print("[-] Unknow Key : %s" % (Bytes[0]))
         print("[+] USB_Found : %s" % (result))
