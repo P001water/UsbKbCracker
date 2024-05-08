@@ -32,7 +32,7 @@ class kbpaser:
             
         elif os.name == "posix":
             #sed '/^\s*$/d' 主要是去掉空行
-            if filterfield not in None:
+            if filterfield is not None:
                 command = f"tshark -r {pcapfile} -Y {filterfield} -T fields -e {fieldvalue} | sed '/^\s*$/d' > {self.datafile}"
             else:
                 command = f"tshark -r {pcapfile} -T fields -e {fieldvalue} | sed '/^\s*$/d' > {self.datafile}"
